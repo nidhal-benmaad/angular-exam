@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3 mt-5 ">
+
+      <form #form="ngForm">
+        <div class="mb-3">
+          <label for="idInput" class="form-label">Id</label>
+          <input type="number" class="form-control" id="idInput" ngModel placeholder="identifiant">
+
+        </div>
+        <div class="mb-3">
+          <label for="titleInput" class="form-label">Titre</label>
+          <input type="text" class="form-control" name="title" ngModel #t="ngModel" placeholder="">
+          <div class="text-danger" *ngIf="t.invalid">
+            required
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="descInput" class="form-label">Description</label>
+          <input type="text" class="form-control" name="desc" ngModel #desc="ngModel" placeholder="Description">
+          <div class="text-danger" *ngIf="desc.value.length <= 10">
+            Description au moins 10 caractères
+          </div>
+        </div>
+        <button class="btn btn-info" (click)="updateData(form.value)">Modifier</button>
+      </form>
+    </div>
+  </div>
+</div>
